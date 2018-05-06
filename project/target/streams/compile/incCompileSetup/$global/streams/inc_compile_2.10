@@ -1,0 +1,142 @@
+format version: 5
+output mode:
+1 items
+0 -> single
+output directories:
+1 items
+output dir -> /Users/tejashree.aher/TweetSentimentAnalysis/project/target/scala-2.10/sbt-0.13/classes
+compile options:
+1 items
+0 -> -deprecation
+javac options:
+0 items
+compiler version:
+1 items
+0 -> 2.10.7
+compile order:
+1 items
+0 -> Mixed
+name hashing:
+1 items
+0 -> true
+products:
+6 items
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> /Users/tejashree.aher/TweetSentimentAnalysis/project/target/scala-2.10/sbt-0.13/classes/Dependencies$.class
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> /Users/tejashree.aher/TweetSentimentAnalysis/project/target/scala-2.10/sbt-0.13/classes/Dependencies$Logging$.class
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> /Users/tejashree.aher/TweetSentimentAnalysis/project/target/scala-2.10/sbt-0.13/classes/Dependencies$Spark$.class
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> /Users/tejashree.aher/TweetSentimentAnalysis/project/target/scala-2.10/sbt-0.13/classes/Dependencies$Testing$.class
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> /Users/tejashree.aher/TweetSentimentAnalysis/project/target/scala-2.10/sbt-0.13/classes/Dependencies$Versions$.class
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> /Users/tejashree.aher/TweetSentimentAnalysis/project/target/scala-2.10/sbt-0.13/classes/Dependencies.class
+binary dependencies:
+4 items
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> /Library/Java/JavaVirtualMachines/jdk1.8.0_162.jdk/Contents/Home/jre/lib/rt.jar
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> /Users/tejashree.aher/.ivy2/cache/org.scala-sbt/ivy/jars/ivy-0.13.17.jar
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> /Users/tejashree.aher/.ivy2/cache/org.scala-sbt/sbt/jars/sbt-0.13.17.jar
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> /Users/tejashree.aher/.sbt/boot/scala-2.10.7/lib/scala-library.jar
+direct source dependencies:
+0 items
+direct external dependencies:
+0 items
+public inherited source dependencies:
+0 items
+public inherited external dependencies:
+0 items
+member reference internal dependencies:
+0 items
+member reference external dependencies:
+0 items
+inheritance internal dependencies:
+0 items
+inheritance external dependencies:
+0 items
+class names:
+6 items
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> Dependencies
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> Dependencies$
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> Dependencies$Logging$
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> Dependencies$Spark$
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> Dependencies$Testing$
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> Dependencies$Versions$
+used names:
+42 items
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> %
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> %%
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> ++
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> <init>
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> <repeated>
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> A
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> Any
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> AnyRef
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> B
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> CanBuildFrom
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> Coll
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> Configuration
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> Dependencies
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> ExclusionRule
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> GenTraversableOnce
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> GroupArtifactID
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> GroupID
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> Logging
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> ModuleID
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> ModuleIDConfigurable
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> Nothing
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> Object
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> Predef
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> Seq
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> Spark
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> String
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> Test
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> Testing
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> That
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> Versions
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> all
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> apply
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> canBuildFrom
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> collection
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> excludeAll
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> moduleIDConfigurable
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> package
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> root
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> sbt
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> scala
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> spark
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> toGroupID
+product stamps:
+6 items
+/Users/tejashree.aher/TweetSentimentAnalysis/project/target/scala-2.10/sbt-0.13/classes/Dependencies$.class -> lastModified(1525597924000)
+/Users/tejashree.aher/TweetSentimentAnalysis/project/target/scala-2.10/sbt-0.13/classes/Dependencies$Logging$.class -> lastModified(1525597924000)
+/Users/tejashree.aher/TweetSentimentAnalysis/project/target/scala-2.10/sbt-0.13/classes/Dependencies$Spark$.class -> lastModified(1525597924000)
+/Users/tejashree.aher/TweetSentimentAnalysis/project/target/scala-2.10/sbt-0.13/classes/Dependencies$Testing$.class -> lastModified(1525597924000)
+/Users/tejashree.aher/TweetSentimentAnalysis/project/target/scala-2.10/sbt-0.13/classes/Dependencies$Versions$.class -> lastModified(1525597925000)
+/Users/tejashree.aher/TweetSentimentAnalysis/project/target/scala-2.10/sbt-0.13/classes/Dependencies.class -> lastModified(1525597924000)
+source stamps:
+1 items
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> hash(248bd85a8b477431025ae5ddc05eb55d36546ef2)
+binary stamps:
+4 items
+/Library/Java/JavaVirtualMachines/jdk1.8.0_162.jdk/Contents/Home/jre/lib/rt.jar -> lastModified(1513734821000)
+/Users/tejashree.aher/.ivy2/cache/org.scala-sbt/ivy/jars/ivy-0.13.17.jar -> lastModified(1517428256000)
+/Users/tejashree.aher/.ivy2/cache/org.scala-sbt/sbt/jars/sbt-0.13.17.jar -> lastModified(1517428372000)
+/Users/tejashree.aher/.sbt/boot/scala-2.10.7/lib/scala-library.jar -> lastModified(1509739617000)
+class names:
+4 items
+/Library/Java/JavaVirtualMachines/jdk1.8.0_162.jdk/Contents/Home/jre/lib/rt.jar -> java.lang.Object
+/Users/tejashree.aher/.ivy2/cache/org.scala-sbt/ivy/jars/ivy-0.13.17.jar -> sbt.ExclusionRule
+/Users/tejashree.aher/.ivy2/cache/org.scala-sbt/sbt/jars/sbt-0.13.17.jar -> sbt.package$
+/Users/tejashree.aher/.sbt/boot/scala-2.10.7/lib/scala-library.jar -> scala.package$
+internal apis:
+1 items
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> 
+rO0ABXNyABB4c2J0aS5hcGkuU291cmNlSjH5SdlLSkQCAAdJAAdhcGlIYXNoWgAIaGFzTWFjcm9aABBoYXNQYWNrYWdlT2JqZWN0TAAYX2ludGVybmFsT25seV9uYW1lSGFzaGVzdAAkTHhzYnRpL2FwaS9faW50ZXJuYWxPbmx5X05hbWVIYXNoZXM7TAADYXBpdAAVTHhzYnRpL2FwaS9Tb3VyY2VBUEk7TAALY29tcGlsYXRpb250ABdMeHNidGkvYXBpL0NvbXBpbGF0aW9uO1sABGhhc2h0AAJbQnhwvJLA4gAAc3IAInhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoZXNU2r6Z+tTsTAIAAlsAD2ltcGxpY2l0TWVtYmVyc3QAI1tMeHNidGkvYXBpL19pbnRlcm5hbE9ubHlfTmFtZUhhc2g7WwAOcmVndWxhck1lbWJlcnNxAH4AB3hwdXIAI1tMeHNidGkuYXBpLl9pbnRlcm5hbE9ubHlfTmFtZUhhc2g7SVqAtt2Wi/QCAAB4cAAAAAB1cQB+AAkAAAAbc3IAIHhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoWw71InY4V88CAAJJAARoYXNoTAAEbmFtZXQAEkxqYXZhL2xhbmcvU3RyaW5nO3hw8jAyLHQABm5vdGlmeXNxAH4ADNy+pmN0AAR3YWl0c3EAfgAM7VtVVHQADSRhc0luc3RhbmNlT2ZzcQB+AAzaXLyZdAAEcm9vdHNxAH4ADBvIWvV0AAZlcXVhbHNzcQB+AAzh5uNwdAADYWxsc3EAfgAM7uD0zXQADGFzSW5zdGFuY2VPZnNxAH4ADORbvNl0AAhWZXJzaW9uc3NxAH4ADCRwkNh0AAxzeW5jaHJvbml6ZWRzcQB+AAwjAVqYdAAMRGVwZW5kZW5jaWVzc3EAfgAMWEV6PnQADSRpc0luc3RhbmNlT2ZzcQB+AAxr/GTbdAAJbm90aWZ5QWxsc3EAfgAMIeflfnQADGlzSW5zdGFuY2VPZnNxAH4ADObQKUN0AAVzcGFya3NxAH4ADGZQ8h50AAI9PXNxAH4ADM0F0fZ0AAVjbG9uZXNxAH4ADDL9s9l0AAdMb2dnaW5nc3EAfgAMaWGg43QABVNwYXJrc3EAfgAMhiAB6HQACHRvU3RyaW5nc3EAfgAM70BX7nQAAiE9c3EAfgAMRdzXGHQACGdldENsYXNzc3EAfgAMTQDrNnQAAm5lc3EAfgAMDZgnrXQAAmVxc3EAfgAMmnC1unQAB1Rlc3RpbmdzcQB+AAyLh/VCdAACIyNzcQB+AAxWltCEdAAIZmluYWxpemVzcQB+AAx1DRm5dAAIaGFzaENvZGVzcgATeHNidGkuYXBpLlNvdXJjZUFQSblep/kpIzikAgACWwALZGVmaW5pdGlvbnN0ABdbTHhzYnRpL2FwaS9EZWZpbml0aW9uO1sACHBhY2thZ2VzdAAUW0x4c2J0aS9hcGkvUGFja2FnZTt4cHVyABdbTHhzYnRpLmFwaS5EZWZpbml0aW9uO4jJXOe0414OAgAAeHAAAAABc3IAE3hzYnRpLmFwaS5DbGFzc0xpa2WDNByh37CXbAIABEwADmRlZmluaXRpb25UeXBldAAaTHhzYnRpL2FwaS9EZWZpbml0aW9uVHlwZTtbABBzYXZlZEFubm90YXRpb25zdAATW0xqYXZhL2xhbmcvU3RyaW5nO0wACHNlbGZUeXBldAAQTHhzYnRpL2FwaS9MYXp5O0wACXN0cnVjdHVyZXEAfgBNeHIAIXhzYnRpLmFwaS5QYXJhbWV0ZXJpemVkRGVmaW5pdGlvbvkRbrHVUDziAgABWwAOdHlwZVBhcmFtZXRlcnN0ABpbTHhzYnRpL2FwaS9UeXBlUGFyYW1ldGVyO3hyABR4c2J0aS5hcGkuRGVmaW5pdGlvbocqG+hxQuNGAgAETAAGYWNjZXNzdAASTHhzYnRpL2FwaS9BY2Nlc3M7WwALYW5ub3RhdGlvbnN0ABdbTHhzYnRpL2FwaS9Bbm5vdGF0aW9uO0wACW1vZGlmaWVyc3QAFUx4c2J0aS9hcGkvTW9kaWZpZXJzO0wABG5hbWVxAH4ADXhwc3IAEHhzYnRpLmFwaS5QdWJsaWO6WD2ubC1gQgIAAHhyABB4c2J0aS5hcGkuQWNjZXNz3WKa+B1jMUgCAAB4cHVyABdbTHhzYnRpLmFwaS5Bbm5vdGF0aW9uO+uX6xkQ9o1IAgAAeHAAAAAAc3IAE3hzYnRpLmFwaS5Nb2RpZmllcnOX52HcEyZ7swIAAUIABWZsYWdzeHAAcQB+ACF1cgAaW0x4c2J0aS5hcGkuVHlwZVBhcmFtZXRlcjvZbSYPKJ3ytgIAAHhwAAAAAH5yABh4c2J0aS5hcGkuRGVmaW5pdGlvblR5cGUAAAAAAAAAABIAAHhyAA5qYXZhLmxhbmcuRW51bQAAAAAAAAAAEgAAeHB0AAZNb2R1bGV1cgATW0xqYXZhLmxhbmcuU3RyaW5nO63SVufpHXtHAgAAeHAAAAAAc3IAIXhzYnRpLmFwaS5BYnN0cmFjdExhenkkU3RyaWN0TGF6eQ1mHGspFiq4AgABTAAFdmFsdWV0ABJMamF2YS9sYW5nL09iamVjdDt4cHNyABN4c2J0aS5hcGkuRW1wdHlUeXBlvP2eRkk7iSQCAAB4cgAUeHNidGkuYXBpLlNpbXBsZVR5cGVyeGKIISO/QAIAAHhyAA54c2J0aS5hcGkuVHlwZT9q2SEWSarKAgAAeHBzcQB+AGRzcgATeHNidGkuYXBpLlN0cnVjdHVyZamq+YCTb9gAAgADTAAIZGVjbGFyZWRxAH4ATUwACWluaGVyaXRlZHEAfgBNTAAHcGFyZW50c3EAfgBNeHEAfgBpc3EAfgBkdXEAfgBIAAAAAHNxAH4AZHVxAH4ASAAAAABzcQB+AGR1cgARW0x4c2J0aS5hcGkuVHlwZTt0/6Vae/npQQIAAHhwAAAAAnNyABR4c2J0aS5hcGkuUHJvamVjdGlvbvPSjVTpRaQtAgACTAACaWRxAH4ADUwABnByZWZpeHQAFkx4c2J0aS9hcGkvU2ltcGxlVHlwZTt4cQB+AGh0AAZPYmplY3RzcgATeHNidGkuYXBpLlNpbmdsZXRvbvynX/jPVuRGAgABTAAEcGF0aHQAEEx4c2J0aS9hcGkvUGF0aDt4cQB+AGhzcgAOeHNidGkuYXBpLlBhdGibPVwIzqUnhAIAAVsACmNvbXBvbmVudHN0ABpbTHhzYnRpL2FwaS9QYXRoQ29tcG9uZW50O3hwdXIAGltMeHNidGkuYXBpLlBhdGhDb21wb25lbnQ7Q9oJdC1nFnQCAAB4cAAAAANzcgAMeHNidGkuYXBpLklkmDJsizdTxEACAAFMAAJpZHEAfgANeHIAF3hzYnRpLmFwaS5QYXRoQ29tcG9uZW50X5oiWy6Gn7wCAAB4cHQABGphdmFzcQB+AIF0AARsYW5nc3IADnhzYnRpLmFwaS5UaGlz2wntpsxaQFwCAAB4cQB+AIJzcQB+AHV0AANBbnlzcQB+AHlzcQB+AHx1cQB+AH8AAAACc3EAfgCBdAAFc2NhbGFxAH4AiHVyABRbTHhzYnRpLmFwaS5QYWNrYWdlO1sTGTdwpyehAgAAeHAAAAAAc3IAFXhzYnRpLmFwaS5Db21waWxhdGlvbu364MNq6KBCAgACSgAJc3RhcnRUaW1lWwAHb3V0cHV0c3QAGltMeHNidGkvYXBpL091dHB1dFNldHRpbmc7eHAAAAFjNLjmvHVyABpbTHhzYnRpLmFwaS5PdXRwdXRTZXR0aW5nO39qwvOnh6VCAgAAeHAAAAABc3IAF3hzYnRpLmFwaS5PdXRwdXRTZXR0aW5netmaR3T7HXsCAAJMAA9vdXRwdXREaXJlY3RvcnlxAH4ADUwAD3NvdXJjZURpcmVjdG9yeXEAfgANeHB0AFcvVXNlcnMvdGVqYXNocmVlLmFoZXIvVHdlZXRTZW50aW1lbnRBbmFseXNpcy9wcm9qZWN0L3RhcmdldC9zY2FsYS0yLjEwL3NidC0wLjEzL2NsYXNzZXN0AAEvdXIAAltCrPMX+AYIVOACAAB4cAAAABQki9hai0d0MQJa5d3AXrVdNlRu8g==
+external apis:
+0 items
+source infos:
+1 items
+/Users/tejashree.aher/TweetSentimentAnalysis/project/Dependencies.scala -> 
+AAAAAAAAAAA=
+compilations:
+4 items
+0 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABYzSdTLR1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAVy9Vc2Vycy90ZWphc2hyZWUuYWhlci9Ud2VldFNlbnRpbWVudEFuYWx5c2lzL3Byb2plY3QvdGFyZ2V0L3NjYWxhLTIuMTAvc2J0LTAuMTMvY2xhc3Nlc3QAAS8=
+1 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABYzSfsaZ1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAVy9Vc2Vycy90ZWphc2hyZWUuYWhlci9Ud2VldFNlbnRpbWVudEFuYWx5c2lzL3Byb2plY3QvdGFyZ2V0L3NjYWxhLTIuMTAvc2J0LTAuMTMvY2xhc3Nlc3QAAS8=
+2 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABYzSqc891cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAVy9Vc2Vycy90ZWphc2hyZWUuYWhlci9Ud2VldFNlbnRpbWVudEFuYWx5c2lzL3Byb2plY3QvdGFyZ2V0L3NjYWxhLTIuMTAvc2J0LTAuMTMvY2xhc3Nlc3QAAS8=
+3 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABYzS45rx1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAVy9Vc2Vycy90ZWphc2hyZWUuYWhlci9Ud2VldFNlbnRpbWVudEFuYWx5c2lzL3Byb2plY3QvdGFyZ2V0L3NjYWxhLTIuMTAvc2J0LTAuMTMvY2xhc3Nlc3QAAS8=
