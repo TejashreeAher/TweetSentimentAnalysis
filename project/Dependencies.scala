@@ -7,7 +7,10 @@ object Dependencies {
 
   object Spark {
     val all = Seq("org.apache.spark" %% "spark-core" % Versions.spark,
-                  "org.apache.spark" %% "spark-sql"  % Versions.spark)
+                  "org.apache.spark" %% "spark-sql"  % Versions.spark,
+                  "org.twitter4j" % "twitter4j-core" % "4.0.6",
+                  "edu.stanford.nlp" % "stanford-corenlp" % "3.5.2" artifacts
+                    (Artifact("stanford-corenlp", "models"), Artifact("stanford-corenlp")))
   }
 
   object Logging {

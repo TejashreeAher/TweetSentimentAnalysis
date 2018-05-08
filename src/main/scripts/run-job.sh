@@ -1,0 +1,2 @@
+export SPARK_HOME=/Users/tejashree.aher/Documents/Sofware/spark-2.3.0-bin-hadoop2.7
+$SPARK_HOME/bin/spark-submit --class "com.example.Sample" --master local[4] ../../../target/scala-2.11/tweet-sentiment-anaysis_2.11-0.0.1.jar
