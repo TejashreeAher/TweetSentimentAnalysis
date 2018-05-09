@@ -8,16 +8,16 @@ object Dependencies {
   object Spark {
     val all = Seq("org.apache.spark" %% "spark-core" % Versions.spark,
                   "org.apache.spark" %% "spark-sql"  % Versions.spark,
-                  "org.twitter4j" % "twitter4j-core" % "4.0.6",
+//                  "org.twitter4j" % "twitter4j-core" % "4.0.6",
                   "edu.stanford.nlp" % "stanford-corenlp" % "3.5.2" artifacts
                     (Artifact("stanford-corenlp", "models"), Artifact("stanford-corenlp")))
   }
 
   object Logging {
     val all =
-      Seq("com.typesafe.scala-logging" %% "scala-logging" % "3.8.0",
-          "ch.qos.logback" % "logback-classic" % "1.2.3",
-          "com.github.pureconfig" %% "pureconfig" % "0.9.0")
+      Seq("com.typesafe.scala-logging" %% "scala-logging" % "3.8.0")
+//          "ch.qos.logback" % "logback-classic" % "1.2.3",
+//          "com.github.pureconfig" %% "pureconfig" % "0.9.0")
   }
 
   object Testing {
