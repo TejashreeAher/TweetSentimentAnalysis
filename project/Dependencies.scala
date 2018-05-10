@@ -11,9 +11,12 @@ object Dependencies {
   object Spark {
     val all = Seq("org.apache.spark" %% "spark-core" % Versions.spark,
                   "org.apache.spark" %% "spark-sql"  % Versions.spark,
-//                  "org.twitter4j" % "twitter4j-core" % "4.0.6",
                   "edu.stanford.nlp" % "stanford-corenlp" % "3.5.2" artifacts
                     (Artifact("stanford-corenlp", "models"), Artifact("stanford-corenlp")))
+  }
+
+  object Twitter {
+    val all = Seq("org.twitter4j" % "twitter4j-core" % "4.0.6")
   }
 
   object Logging {
@@ -33,7 +36,7 @@ object Dependencies {
 
   val root = Spark.all ++ Logging.all ++ Testing.all ++ Common.all
 
-  val dataRetriever = Spark.all ++ Logging.all ++ Testing.all ++ Common.all
+  val dataRetriever = Spark.all ++ Logging.all ++ Testing.all ++ Common.all ++ Twitter.all
 
   val analysisJob = root
 
