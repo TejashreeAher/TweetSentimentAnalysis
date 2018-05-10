@@ -5,6 +5,9 @@ object Dependencies {
     val spark     = "2.2.1"
   }
 
+  object Common {
+    val all = Seq( "com.github.scopt" %% "scopt"% "3.5.0")
+  }
   object Spark {
     val all = Seq("org.apache.spark" %% "spark-core" % Versions.spark,
                   "org.apache.spark" %% "spark-sql"  % Versions.spark,
@@ -27,6 +30,11 @@ object Dependencies {
         ExclusionRule("com.fasterxml.jackson.core", "jackson-databind")
       ))
   }
-  val root = Spark.all ++ Logging.all ++ Testing.all
+
+  val root = Spark.all ++ Logging.all ++ Testing.all ++ Common.all
+
+  val dataRetriever = Spark.all ++ Logging.all ++ Testing.all ++ Common.all
+
+  val analysisJob = root
 
 }
