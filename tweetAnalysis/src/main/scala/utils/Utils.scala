@@ -2,12 +2,15 @@ package utils
 
 import java.text.SimpleDateFormat
 import java.time.LocalDate
+import java.util.Locale
 
 object Utils {
-  def getDatefromString(timeStr : String)={
-    val formatter = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss")
-    val date = formatter.parse(timeStr)
-    println(s"(((((((( date to be parsed : ${timeStr} with year : ${date.getYear+1900}, month: ${date.getMonth}, day: ${date.getDay}")
-    LocalDate.of(date.getYear+1900, date.getMonth+1, date.getDate).toString
+  def parseDate(date: String)={
+    val twitterFormat="EEE MMM dd HH:mm:ss ZZZZZ yyyy";
+    // Important note. Only ENGLISH Locale works.
+    val sf = new SimpleDateFormat(twitterFormat, Locale.ENGLISH);
+    sf.setLenient(true);
+    val parsedDate = sf.parse(date);
+    LocalDate.of(parsedDate.getYear+1900, parsedDate.getMonth+1, parsedDate.getDate).toString
   }
 }
