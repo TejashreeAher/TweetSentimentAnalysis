@@ -3,6 +3,7 @@ import sbt.{ExclusionRule, _}
 object Dependencies {
   object Versions {
     val spark     = "2.2.1"
+    val flinkVersion = "1.3.2"
   }
 
   object Common {
@@ -17,6 +18,22 @@ object Dependencies {
 
   object Twitter {
     val all = Seq("org.twitter4j" % "twitter4j-core" % "4.0.6")
+  }
+
+  object Streaming {
+    val all = Seq(
+      "org.apache.flink" %% "flink-scala" % Versions.flinkVersion % "compile",
+      "org.apache.flink" %% "flink-streaming-scala" % Versions.flinkVersion % "compile",
+      "org.apache.flink" %% "flink-connector-twitter" % Versions.flinkVersion % "compile",
+      "org.twitter4j"    %   "twitter4j-core" % "4.0.6",
+      "org.apache.flink" %% "flink-connector-kafka-0.10" % "1.3.1" exclude ("javax.servlet", "servlet-api"),
+      "org.apache.flink" %% "flink-connector-cassandra" % Versions.flinkVersion % "compile"
+        exclude("io.netty", "netty-common")
+        exclude("io.netty", "netty-all")
+        exclude("io.netty", "netty-handler")
+        exclude("io.netty", "netty-codec")
+        exclude("io.netty", "netty-transport")
+        exclude("io.netty", "netty-buffer"))
   }
 
   object Logging {
@@ -36,7 +53,7 @@ object Dependencies {
 
   val root = Spark.all ++ Logging.all ++ Testing.all ++ Common.all
 
-  val dataRetriever = Spark.all ++ Logging.all ++ Testing.all ++ Common.all ++ Twitter.all
+  val dataRetriever = Spark.all ++ Logging.all ++ Testing.all ++ Common.all ++ Streaming.all
 
   val analysisJob = root
 

@@ -1,7 +1,5 @@
 package com.twitter
 
-import org.apache.spark.sql.SparkSession
-
 object TweetsRetrievalJob {
   val JOB_NAME = "Tweet Retrieval"
   case class Config(twitterConfigFilePath: String = "", startdate: String = "")
@@ -25,7 +23,6 @@ object TweetsRetrievalJob {
     parser.parse(args, defaultArgs)
         .map{config =>
           println(s"Config file path is : ${config.twitterConfigFilePath}")
-          val sc = getSparkContext(JOB_NAME)
         }
       .getOrElse(
         System.exit(0)
@@ -33,11 +30,5 @@ object TweetsRetrievalJob {
 
 
 
-  }
-
-  def getSparkContext(name: String)={
-    val spark = SparkSession.builder.appName(name)
-      .master("local[2]")
-      .getOrCreate()
   }
 }

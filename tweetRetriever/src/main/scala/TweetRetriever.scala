@@ -7,7 +7,6 @@ import twitter4j.conf.ConfigurationBuilder
 import scala.collection.JavaConverters._
 
 object TweetRetriever {
-
   val MAX_TWEETS = 100
   val MAX_LIMIT = 5
 
@@ -31,19 +30,24 @@ object TweetRetriever {
 
     val searchRateLimit = twitter.getRateLimitStatus("search")
     val searchTweetsLimit = searchRateLimit.get("/search/tweets")
+    var remainingLimit = searchTweetsLimit.getRemaining
 
     var numTweetsSearched = 100
     var allTweets: List[Tweet] = List()
     var maxIdToSearch = -1L
 
     while(numTweetsSearched != 0){
-      println(s"Remaining time -> ${searchTweetsLimit.getRemaining}")
-      while(searchTweetsLimit.getRemaining == 0){
-        println(s"******* API LIMIT REACHED, sleeping for time : ${searchTweetsLimit.getSecondsUntilReset + 100}")
-        Thread.sleep((searchTweetsLimit.getSecondsUntilReset + 5)*1000)
+      println(s"Remaining time -> ${remainingLimit}")
+      if(remainingLimit == 0) {
+        while (twitter.getRateLimitStatus("search").get("/search/tweets").getRemaining == 0) {
+          println(s"******* API LIMIT REACHED, sleeping for time : ${searchTweetsLimit.getSecondsUntilReset}")
+          Thread.sleep((searchTweetsLimit.getSecondsUntilReset + 5) * 1000)
+        }
+        remainingLimit = twitter.getRateLimitStatus("search").get("/search/tweets").getRemaining
       }
       //call twitter to get tweets
-      val tweetsSearched = callTwitterSearchAPI(twitter, "#holidaycheck", maxIdToSearch, "2018-01-01")
+      val tweetsSearched = callTwitterSearchAPI(twitter, "#holidaycheck", maxIdToSearch, "2018-05-10")
+      remainingLimit = remainingLimit-1
       val lowestIdAndTweets = processAndGetNextMaxId(tweetsSearched.asScala.toList)
       allTweets = allTweets.++(lowestIdAndTweets._2)
       numTweetsSearched = lowestIdAndTweets._2.size
@@ -67,12 +71,11 @@ object TweetRetriever {
 
   def callTwitterSearchAPI(twitter: Twitter, queryString: String, maxID: Long, timeSince: String)={
     // (2) use the twitter object to get your friend's timeline
-    var query = new Query("eurovision")
-    query.setSince("2018-01-01")
+    println(s"Max id is : ${maxID}")
+    var query = new Query(queryString)
+    query.setSince("2018-05-10")
     query.setMaxId(maxID)
     query.setCount(MAX_TWEETS)
-
-    println(s"Getting from date : ${query.getSince}")
 
     val queryResult = twitter.search(query)
     println(s"Result has  : ${queryResult.getTweets.size()} tweets")
