@@ -1,5 +1,9 @@
 package com.job.analysis
 
+import com.job.models.Sentiment
+
 trait Analyzer {
-    def analyze
+    def getSentiment(): Sentiment
+
+    def getSentimentFromValue(value: Int): Sentiment
 }
