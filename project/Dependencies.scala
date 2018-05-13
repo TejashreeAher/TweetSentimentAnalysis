@@ -39,7 +39,7 @@ object Dependencies {
   object Logging {
     val all =
       Seq("com.typesafe.scala-logging" %% "scala-logging" % "3.8.0")
-//          "ch.qos.logback" % "logback-classic" % "1.2.3",
+    //          "ch.qos.logback" % "logback-classic" % "1.2.3",
 //          "com.github.pureconfig" %% "pureconfig" % "0.9.0")
   }
 
