@@ -7,11 +7,11 @@ class HdfsEncoder() extends MapFunction[Tweet, String]{
   override def map(value: Tweet): String = {
     StringBuilder.newBuilder
       .append(value.id)
-      .append("\t")
-      .append(value.text)
-      .append("\t")
+      .append(",")
       .append(value.createdAt)
-      .append("\t")
+      .append(",")
+      .append(s""""${value.text}"""")
+      .append(",")
       .append(value.favoriteCount)
       .toString()
   }
