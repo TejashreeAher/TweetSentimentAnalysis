@@ -4,11 +4,11 @@ package com.twitter
 import java.util.Properties
 
 import com.twitter.hbc.core.endpoint.{StatusesFilterEndpoint, StreamingEndpoint}
-import com.twitter.mapper.TweetMapper
-import org.apache.flink.streaming.api.scala.StreamExecutionEnvironment
+import com.twitter.mapper.{HdfsEncoder, TweetMapper}
+import org.apache.flink.streaming.api.scala.{StreamExecutionEnvironment, _}
+import org.apache.flink.streaming.connectors.fs.bucketing.{BucketingSink, DateTimeBucketer}
 import org.apache.flink.streaming.connectors.twitter.TwitterSource
 import org.apache.flink.streaming.connectors.twitter.TwitterSource.EndpointInitializer
-import org.apache.flink.streaming.api.scala._
 
 import scala.collection.JavaConverters._
 
@@ -36,11 +36,19 @@ object TweetsRetriever {
 
     val streamSource = env.addSource(source)
 
+
+    // Output stream 2: write **newly** scraped articles to HDFS
+    val rollingSink = new BucketingSink[String]("/tmp/flink/tweets/")
+    rollingSink.setBucketer(new DateTimeBucketer("yyyy-MM-dd")) //this is default
+
+
     streamSource.flatMap(new TweetMapper())
-        .print()
+        .map(new HdfsEncoder())
+        .addSink(rollingSink)
 
     env.execute("Twitter streaming")
   }
+  
 
   class CustomEndpoint extends EndpointInitializer with Serializable
   {

@@ -25,6 +25,7 @@ object Dependencies {
       "org.apache.flink" %% "flink-scala" % Versions.flinkVersion % "compile",
       "org.apache.flink" %% "flink-streaming-scala" % Versions.flinkVersion % "compile",
       "org.apache.flink" %% "flink-connector-twitter" % Versions.flinkVersion % "compile",
+      "org.apache.flink"  % "flink-connector-filesystem_2.11" % "1.3.1",
       "org.twitter4j"    %   "twitter4j-core" % "4.0.6",
       "org.apache.flink" %% "flink-connector-kafka-0.10" % "1.3.1" exclude ("javax.servlet", "servlet-api"),
       "org.apache.flink" %% "flink-connector-cassandra" % Versions.flinkVersion % "compile"
