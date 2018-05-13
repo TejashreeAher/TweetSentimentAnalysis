@@ -22,6 +22,7 @@ lazy val tweetAnalysis = project
     version := "0.0.1",
     scalaVersion := "2.11.11",
     libraryDependencies ++= Dependencies.analysisJob,
+    mainClass in assembly := Some("com.twitter.TweetsRetriever"),
     assemblyMergeStrategy in assembly := {
       case PathList("log4j.xml", xs @ _ *)      => MergeStrategy.discard
       case PathList("reference.conf", xs @ _ *) => MergeStrategy.concat

@@ -1,6 +1,5 @@
 package com.twitter
 
-//this is needed to fix type errors while consuming the datastream
 import java.util.Properties
 
 import com.twitter.hbc.core.endpoint.{StatusesFilterEndpoint, StreamingEndpoint}
@@ -19,6 +18,7 @@ object TweetsRetriever {
   val JOB_NAME = "twitter-stream"
   val bootstrapStartDate = "2018-01-01"
   val keyWord = "#holidaycheck"
+  val filePath = "/tmp/streaming/tweets/"
 
   case class Config(startDate: String= "", endDate : String = "")
 
@@ -50,20 +50,20 @@ object TweetsRetriever {
     val tweetStream = bootStrapStream.union(liveStream)
 
     // Output stream 2: write **newly** scraped articles to HDFS, as this is streaming, buckets will be as per tweets date too
-    val rollingSink = new BucketingSink[String]("/tmp/flink/tweets/")
+    val rollingSink = new BucketingSink[String](filePath)
     rollingSink.setBucketer(new DateTimeBucketer("yyyy-MM-dd")) //this is default
 
     tweetStream.map(new HdfsEncoder())
         .addSink(rollingSink)
 
-    env.execute("Twitter streaming")
+    env.execute("Twitter-Streaming-Job")
   }
 
   class CustomEndpoint extends EndpointInitializer with Serializable
   {
     override def createEndpoint(): StreamingEndpoint = {
       val endpoint = new StatusesFilterEndpoint()
-      endpoint.trackTerms(List("#holidaycheck").asJava)
+      endpoint.trackTerms(List(keyWord).asJava)
       endpoint
     }
   }

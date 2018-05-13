@@ -54,7 +54,7 @@ object Dependencies {
 
   val root = Spark.all ++ Logging.all ++ Testing.all ++ Common.all
 
-  val dataRetriever = Spark.all ++ Logging.all ++ Testing.all ++ Common.all ++ Streaming.all
+  val dataRetriever = Logging.all ++ Testing.all ++ Common.all ++ Streaming.all
 
   val analysisJob = root
 
