@@ -10,7 +10,7 @@ import edu.stanford.nlp.sentiment.SentimentCoreAnnotations
 
 import scala.collection.JavaConverters._
 
-object CoreAnalyzer extends Analyzer {
+class CoreAnalyzer extends Analyzer {
 //  override def analyze: Unit = {
 //    SentimentAnalyzer.
 //  }
