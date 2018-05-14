@@ -2,18 +2,20 @@ import sbt.{ExclusionRule, _}
 
 object Dependencies {
   object Versions {
-    val spark     = "2.2.1"
+    val spark = "2.2.1"
     val flinkVersion = "1.3.2"
   }
 
   object Common {
-    val all = Seq( "com.github.scopt" %% "scopt"% "3.5.0")
+    val all = Seq("com.github.scopt" %% "scopt" % "3.5.0")
   }
   object Spark {
-    val all = Seq("org.apache.spark" %% "spark-core" % Versions.spark,
-                  "org.apache.spark" %% "spark-sql"  % Versions.spark,
-                  "edu.stanford.nlp" % "stanford-corenlp" % "3.5.2" artifacts
-                    (Artifact("stanford-corenlp", "models"), Artifact("stanford-corenlp")))
+    val all = Seq(
+      "org.apache.spark" %% "spark-core" % Versions.spark,
+      "org.apache.spark" %% "spark-sql" % Versions.spark,
+      "edu.stanford.nlp" % "stanford-corenlp" % "3.5.2" artifacts
+        (Artifact("stanford-corenlp", "models"), Artifact("stanford-corenlp"))
+    )
   }
 
   object Twitter {
@@ -25,16 +27,17 @@ object Dependencies {
       "org.apache.flink" %% "flink-scala" % Versions.flinkVersion % "compile",
       "org.apache.flink" %% "flink-streaming-scala" % Versions.flinkVersion % "compile",
       "org.apache.flink" %% "flink-connector-twitter" % Versions.flinkVersion % "compile",
-      "org.apache.flink"  % "flink-connector-filesystem_2.11" % "1.3.1",
-      "org.twitter4j"    %   "twitter4j-core" % "4.0.6",
+      "org.apache.flink" % "flink-connector-filesystem_2.11" % "1.3.1",
+      "org.twitter4j" % "twitter4j-core" % "4.0.6",
       "org.apache.flink" %% "flink-connector-kafka-0.10" % "1.3.1" exclude ("javax.servlet", "servlet-api"),
       "org.apache.flink" %% "flink-connector-cassandra" % Versions.flinkVersion % "compile"
-        exclude("io.netty", "netty-common")
-        exclude("io.netty", "netty-all")
-        exclude("io.netty", "netty-handler")
-        exclude("io.netty", "netty-codec")
-        exclude("io.netty", "netty-transport")
-        exclude("io.netty", "netty-buffer"))
+        exclude ("io.netty", "netty-common")
+        exclude ("io.netty", "netty-all")
+        exclude ("io.netty", "netty-handler")
+        exclude ("io.netty", "netty-codec")
+        exclude ("io.netty", "netty-transport")
+        exclude ("io.netty", "netty-buffer")
+    )
   }
 
   object Logging {
@@ -45,16 +48,20 @@ object Dependencies {
   }
 
   object Testing {
-    val all = Seq("org.scalatest" %% "scalatest" % "3.0.4" % Test excludeAll(ExclusionRule("com.fasterxml.jackson.core", "jackson-core")),
-      "com.github.tomakehurst" % "wiremock" % "2.14.0" % Test excludeAll(
+    val all = Seq(
+      "org.scalatest" %% "scalatest" % "3.0.4" % Test excludeAll (ExclusionRule(
+        "com.fasterxml.jackson.core",
+        "jackson-core")),
+      "com.github.tomakehurst" % "wiremock" % "2.14.0" % Test excludeAll (
         ExclusionRule("com.fasterxml.jackson.core", "jackson-core"),
         ExclusionRule("com.fasterxml.jackson.core", "jackson-databind")
-      ))
+      )
+    )
   }
 
   val root = Spark.all ++ Logging.all ++ Testing.all ++ Common.all
 
-  val dataRetriever = Logging.all ++ Testing.all ++ Common.all ++ Streaming.all
+  val dataRetriever = Logging.all ++ Testing.all ++ Common.all ++ Streaming.all ++ Spark.all
 
   val analysisJob = root
 
