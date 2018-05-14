@@ -30,11 +30,27 @@ Take snapshot of the bootstrap date so that these tweets are not fetched again w
 
 Building projects :
 1. tweetRetriever :
+    $ sbt clean compile test
+    $ sbt tweetRetriever/assembly
+
+    Running job :
+    1. Start flink cluster :
+        $ cd /Users/tejashree.aher/Documents/Sofware/flink-1.3.3/
+        $ /bin/start-local.sh
+        (JobManager’s web frontend at http://localhost:8081)
+        (Logs : $ tail log/flink-*-jobmanager-*.log)
+
+    2. Submit the job to the cluster :
+        $ cd /Users/tejashree.aher/Documents/Sofware/flink-1.3.3/
+        $ ./bin/flink run /Users/tejashree.aher/TweetSentimentAnalysis/tweetRetriever/target/scala-2.11/tweet-retriever-assembly-0.0.1.jar -d "2018-01-01" -w "#holidaycheck" -f "/Users/tejashree.aher/TweetSentimentAnalysis/twitter.properties"
+        (Logs : tail -f log/flink-*-taskmanager-*.out)
+    3. To stop the cluster : $ ./bin/stop-local.sh
 
 2. tweetAnalysis:
-    export SBT_OPTS="-Xmx2G -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=2G -Xss2M  -Duser.timezone=GMT"
-    cd TweetSentimentAnalysis
-    sbt tweetAnalysis/compile test
-    sbt tweetAnalysis/assembly
-    export SPARK_HOME=/your/spark/home
-    ./tweetAnalysis/src/main/scripts/run-job.sh "2018-05-14" "#holidaycheck"
+    $ export SBT_OPTS="-Xmx2G -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=2G -Xss2M  -Duser.timezone=GMT"
+    $ cd TweetSentimentAnalysis
+    $ sbt tweetAnalysis/compile test
+    $ sbt tweetAnalysis/assembly
+    $ export SPARK_HOME=/your/spark/home
+    $ ./tweetAnalysis/src/main/scripts/run-job.sh "2018-05-14" "#holidaycheck"
+

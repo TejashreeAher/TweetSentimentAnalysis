@@ -1,5 +1,6 @@
 package com.twitter
 
+import java.io.FileInputStream
 import java.util.Properties
 
 import com.twitter.hbc.core.endpoint.{StatusesFilterEndpoint, StreamingEndpoint}
