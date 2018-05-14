@@ -13,6 +13,8 @@ object Dependencies {
     val all = Seq(
       "org.apache.spark" %% "spark-core" % Versions.spark,
       "org.apache.spark" %% "spark-sql" % Versions.spark,
+      "com.typesafe" % "config" % "1.3.2",
+      "com.github.pureconfig" %% "pureconfig" % "0.9.0",
       "edu.stanford.nlp" % "stanford-corenlp" % "3.5.2" artifacts
         (Artifact("stanford-corenlp", "models"), Artifact("stanford-corenlp"))
     )
@@ -44,7 +46,6 @@ object Dependencies {
     val all =
       Seq("com.typesafe.scala-logging" %% "scala-logging" % "3.8.0")
     //          "ch.qos.logback" % "logback-classic" % "1.2.3",
-//          "com.github.pureconfig" %% "pureconfig" % "0.9.0")
   }
 
   object Testing {
@@ -52,6 +53,7 @@ object Dependencies {
       "org.scalatest" %% "scalatest" % "3.0.4" % Test excludeAll (ExclusionRule(
         "com.fasterxml.jackson.core",
         "jackson-core")),
+      "org.mockito" % "mockito-core" % "2.7.19" % Test,
       "com.github.tomakehurst" % "wiremock" % "2.14.0" % Test excludeAll (
         ExclusionRule("com.fasterxml.jackson.core", "jackson-core"),
         ExclusionRule("com.fasterxml.jackson.core", "jackson-databind")
