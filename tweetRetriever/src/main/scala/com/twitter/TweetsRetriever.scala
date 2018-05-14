@@ -17,14 +17,50 @@ import org.apache.flink.streaming.connectors.twitter.TwitterSource.EndpointIniti
 import scala.collection.JavaConverters._
 
 object TweetsRetriever {
-  val JOB_NAME = "twitter-stream"
-  val bootstrapStartDate = "2018-01-01"
-  val keyWord = "#holidaycheck"
-  val filePath = "/tmp/streaming/tweets/"
+  val JOB_NAME = "twitter-streaming-job"
+  val filePath = "tmp/streaming/tweets/#holidaycheck/" //change this to take keyword from the argument
 
-  case class Config(startDate: String = "", endDate: String = "")
+  case class Args(startDate: String = "",
+                  keyWord: String = "#holidayCheck",
+                  twitterPropsFile: String = "")
 
   def main(args: Array[String]): Unit = {
+    // parse the input date
+    val parser = new scopt.OptionParser[Args](JOB_NAME) {
+      head("twitter streaming job")
+
+      opt[String]('d', "start-date")
+        .required()
+        .text("Provide date ffrom which old tweets are to be retrieved")
+        .action { (x, c) => ///use -d or --date
+          c.copy(startDate = x)
+        }
+
+      opt[String]('w', "keyword")
+        .required()
+        .text("Enter the keyword to be filtered from Twitter")
+        .action { (x, c) => ///use -w or --keyword
+          c.copy(keyWord = x)
+        }
+      opt[String]('f', "file")
+        .required()
+        .text("Give the path to the file with Twitter credentials")
+        .action { (x, c) => ///use -w or --keyword
+          c.copy(twitterPropsFile = x)
+        }
+    }
+
+    val defaultParams = Args()
+    val inputArgs: Args = parser
+      .parse(args, defaultParams)
+      .getOrElse {
+        parser.showUsageAsError
+        sys.exit(1)
+      }
+
+    val bootstrapStartDate = inputArgs.startDate
+    val keyWord = inputArgs.keyWord
+    println(s"Keyword is : ${keyWord}")
 
     implicit val typeInfo = TypeInformation.of(classOf[(Tweet)])
     // get the execution environment
@@ -33,7 +69,8 @@ object TweetsRetriever {
     env.enableCheckpointing(1000) //doesn't work in standalone mode. Works in production mode ...Restarting jobmanager will lose this checkpoint
 
     val twitterProps = new Properties()
-    twitterProps.load(getClass.getResourceAsStream("/twitter.properties"))
+    twitterProps.load(new FileInputStream(inputArgs.twitterPropsFile))
+//    twitterProps.load(getClass.getResourceAsStream("/twitter.properties"))
 
     /***Code to listen to twitter stream***/
     val props = new Properties()
@@ -45,8 +82,9 @@ object TweetsRetriever {
                       twitterProps.get("ACCESS_TOKEN").toString)
     props.setProperty(TwitterSource.TOKEN_SECRET,
                       twitterProps.get("ACCESS_TOKEN_SECRET").toString)
+
     val source = new TwitterSource(props)
-    source.setCustomEndpointInitializer(new CustomEndpoint())
+    source.setCustomEndpointInitializer(new CustomEndpoint(keyWord))
     val liveStream = env
       .addSource(source)
       .flatMap(new TweetMapper())
@@ -68,9 +106,12 @@ object TweetsRetriever {
     env.execute("Twitter-Streaming-Job")
   }
 
-  class CustomEndpoint extends EndpointInitializer with Serializable {
+  class CustomEndpoint(keyWord: String)
+      extends EndpointInitializer
+      with Serializable {
     override def createEndpoint(): StreamingEndpoint = {
       val endpoint = new StatusesFilterEndpoint()
+      println(s"creating endpoint for keyword : ${keyWord}")
       endpoint.trackTerms(List(keyWord).asJava)
       endpoint
     }
