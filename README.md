@@ -13,9 +13,11 @@ The input to this job are:
     
     2. the `date` from which we need to fetch historic tweets (Bootstrap process, more on it below). The format is "YYYY-MM-DD".
     Absence of date means there is not need to bootstrap
+    
+    3. `keyword` is also kept as a parameter. Currently one job processes only on keyword.
 
 ### 2. tweetAnalysis : 
-This is a spark job that runs in a batch mode once a day. The job aggregates gets tweets for the last day (stored by the flink job) and processes it and stores in json files
+This is a spark job that runs in a batch mode once a day. The job aggregates gets tweets for the last day (stored by the flink job) and processes it and stores in json files. (The path to the input file and output files are in the configuration)
 
 Note that the tweetAnalysis job runs for the previous day as tweetRetriever is already fetching tweets for the current day
 
@@ -68,6 +70,9 @@ Flink job creates partitions strating with "_" which are invisible for spark. So
 2. Proper metrics for monitoring
 
 3. More test cases
+
+4. Better sync between the two jobs with respect to file paths, build files. Some code can be moved to a common project which both these projects depend on.
+
 
 
 
