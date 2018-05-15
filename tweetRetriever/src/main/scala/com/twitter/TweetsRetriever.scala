@@ -19,7 +19,7 @@ import scala.collection.JavaConverters._
 
 object TweetsRetriever {
   val JOB_NAME = "twitter-streaming-job"
-  val filePath = "tmp/streaming/tweets/#holidaycheck/" //change this to take keyword from the argument
+  val filePath = "/tmp/streaming/tweets/" //change this to take keyword from the argument
 
   case class Args(startDate: String = "",
                   keyWord: String = "#holidayCheck",
@@ -94,11 +94,13 @@ object TweetsRetriever {
     val bootStrapStream =
       env.addSource(new HistoricTweetSource(bootstrapStartDate, keyWord))
 
-    val tweetStream = bootStrapStream.union(liveStream)
+    val tweetStream = bootStrapStream
+      .union(liveStream)
 
     // Output stream 2: write **newly** scraped articles to HDFS, as this is streaming, buckets will be as per tweets date too
-    val rollingSink = new BucketingSink[String](filePath)
-    rollingSink.setBucketer(new DateTimeBucketer("yyyy-MM-dd")) //this is default
+    val rollingSink = new BucketingSink[String](s"${filePath}/${keyWord}")
+    rollingSink
+      .setBucketer(new DateTimeBucketer("yyyy-MM-dd"))
 
     tweetStream
       .map(new HdfsEncoder())
@@ -114,6 +116,7 @@ object TweetsRetriever {
       val endpoint = new StatusesFilterEndpoint()
       println(s"creating endpoint for keyword : ${keyWord}")
       endpoint.trackTerms(List(keyWord).asJava)
+//      endpoint.setBackfillCount(1000)
       endpoint
     }
   }

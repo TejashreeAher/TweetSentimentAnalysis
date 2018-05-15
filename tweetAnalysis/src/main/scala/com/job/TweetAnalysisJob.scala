@@ -38,7 +38,7 @@ object TweetAnalysisJob {
     }
 
     val defaultParams = Args()
-    val inputArgs = parser
+    val inputArgs: Args = parser
       .parse(args, defaultParams)
       .getOrElse {
         parser.showUsageAsError
@@ -51,7 +51,8 @@ object TweetAnalysisJob {
     val outputConfig =
       pureconfig.loadConfigOrThrow[OutpurConfig](conf, "output")
 
-    println(s"Received input path  : ${inputConfig.filePath}")
+    println(
+      s"Received input path  : ${inputConfig.filePath}/${keyWord}/${inputArgs.date}/")
     println(
       s"Received  prefix : ${outputConfig.analysedPathPrefix}, aggregated prefix : ${outputConfig.aggregatedPathPrefix}")
     val schema = Encoders.product[Tweet].schema

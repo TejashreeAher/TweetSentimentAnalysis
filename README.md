@@ -26,25 +26,31 @@ tweets from Twitter for the job to process. This is particularly needed when the
 
 
 TO DO :
-Take snapshot of the bootstrap date so that these tweets are not fetched again while bootstrapping
+Take snapshot of the bootstrap date so that these tweets are not fetched again while bootstrapping. But as the tweets occur only once,
+the new result will be the absolute result.
 
 Building projects :
 1. tweetRetriever :
     $ sbt clean compile test
+    $ export SBT_OPTS="-Xmx2G -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=2G -Xss2M  -Duser.timezone=GMT"
     $ sbt tweetRetriever/assembly
 
     Running job :
     1. Start flink cluster :
         $ cd /Users/tejashree.aher/Documents/Sofware/flink-1.3.3/
-        $ /bin/start-local.sh
+        $ ./bin/start-local.sh
         (JobManager’s web frontend at http://localhost:8081)
         (Logs : $ tail log/flink-*-jobmanager-*.log)
 
     2. Submit the job to the cluster :
         $ cd /Users/tejashree.aher/Documents/Sofware/flink-1.3.3/
-        $ ./bin/flink run /Users/tejashree.aher/TweetSentimentAnalysis/tweetRetriever/target/scala-2.11/tweet-retriever-assembly-0.0.1.jar -d "2018-01-01" -w "#holidaycheck" -f "/Users/tejashree.aher/TweetSentimentAnalysis/twitter.properties"
+        $ ./bin/flink run /Users/tejashree.aher/TweetSentimentAnalysis/tweetRetriever/target/scala-2.11/tweet-retriever-assembly-0.0.1.jar -d "2018-01-01" -w "#holidaycheck" -f "twitter.properties"
         (Logs : tail -f log/flink-*-taskmanager-*.out)
-    3. To stop the cluster : $ ./bin/stop-local.sh
+    3. Get list of running jobs :
+        $ ./bin/flink list
+    4.  Stop a running flink job :
+        $ ./bin/flink stop ${jobID}
+    5. To stop the cluster : $ ./bin/stop-local.sh
 
 2. tweetAnalysis:
     $ export SBT_OPTS="-Xmx2G -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=2G -Xss2M  -Duser.timezone=GMT"
@@ -52,5 +58,12 @@ Building projects :
     $ sbt tweetAnalysis/compile test
     $ sbt tweetAnalysis/assembly
     $ export SPARK_HOME=/your/spark/home
-    $ ./tweetAnalysis/src/main/scripts/run-job.sh "2018-05-14" "#holidaycheck"
+    $ ./tweetAnalysis/src/main/scripts/run-job.sh "2018-05-15" "#holidaycheck"
+
+Flink job creates partitions strating with "_" which are invisible for spark. So current workaround is to rename those files using following commands :
+
+    $ cd /tmp/streaming/tweets/${keyword}/${date}/
+    $ for f in _part*; do mv "$f" "${f#_}"; done
+
+TROUBLESHOOTING :
 
