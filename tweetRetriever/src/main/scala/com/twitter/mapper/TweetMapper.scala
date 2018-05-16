@@ -22,7 +22,11 @@ class TweetMapper extends FlatMapFunction[String, Tweet] {
         println(s"Id is ${id}")
         val createdAt = jsonRecvd.get("created_at").asText()
         println(s"created at is ${createdAt}")
-        val text = jsonRecvd.get("text").asText()
+        val text = isExtendedTweet(jsonRecvd) match {
+          case true  => jsonRecvd.get("extended_tweet").get("full_text").asText()
+          case false => jsonRecvd.get("text").asText()
+        }
+//        val text = jsonRecvd.get("extended_tweet").asText()
         println(s"text is ${text}")
         val favoriteCount = jsonRecvd.get("favorite_count").asInt()
         println(s"favorite count is ${favoriteCount}")
@@ -37,5 +41,10 @@ class TweetMapper extends FlatMapFunction[String, Tweet] {
 
   def isValidTweet(tweet: JsonNode) = {
     true
+  }
+
+  def isExtendedTweet(tweet: JsonNode) = {
+    println(s"twwet has  :  ${tweet.get("extended_tweet")}")
+    tweet.get("extended_tweet") != null
   }
 }

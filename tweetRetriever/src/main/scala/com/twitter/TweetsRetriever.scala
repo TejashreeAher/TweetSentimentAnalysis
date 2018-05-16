@@ -3,15 +3,13 @@ package com.twitter
 import java.io.FileInputStream
 import java.util.Properties
 
+import com.twitter.functions.TweetBucketer
 import com.twitter.hbc.core.endpoint.{StatusesFilterEndpoint, StreamingEndpoint}
 import com.twitter.mapper.{HdfsEncoder, TextProcessor, Tweet, TweetMapper}
 import com.twitter.source.HistoricTweetSource
 import org.apache.flink.api.common.typeinfo.TypeInformation
 import org.apache.flink.streaming.api.scala.{StreamExecutionEnvironment, _}
-import org.apache.flink.streaming.connectors.fs.bucketing.{
-  BucketingSink,
-  DateTimeBucketer
-}
+import org.apache.flink.streaming.connectors.fs.bucketing.BucketingSink
 import org.apache.flink.streaming.connectors.twitter.TwitterSource
 import org.apache.flink.streaming.connectors.twitter.TwitterSource.EndpointInitializer
 
@@ -20,6 +18,7 @@ import scala.collection.JavaConverters._
 object TweetsRetriever {
   val JOB_NAME = "twitter-streaming-job"
   val filePath = "/tmp/streaming/tweets/" //change this to take keyword from the argument
+  val tweetDateFormat = "EEE MMM dd"
 
   case class Args(startDate: String = "",
                   keyWord: String = "#holidayCheck",
@@ -100,7 +99,7 @@ object TweetsRetriever {
     // Output stream 2: write **newly** scraped articles to HDFS, as this is streaming, buckets will be as per tweets date too
     val rollingSink = new BucketingSink[String](s"${filePath}/${keyWord}")
     rollingSink
-      .setBucketer(new DateTimeBucketer("yyyy-MM-dd"))
+      .setBucketer(new TweetBucketer(tweetDateFormat))
 
     tweetStream
       .map(new HdfsEncoder())

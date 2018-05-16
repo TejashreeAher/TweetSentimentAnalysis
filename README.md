@@ -64,6 +64,11 @@ Flink job creates partitions strating with "_" which are invisible for spark. So
 
 ### TROUBLESHOOTING :
 
+### Notes :
+1. As the Standard Twitter API (free) is used, histpric tweets can be fetched only from last 7 days.
+
+2. realtime updates to tweets are also available opnly in premium API -> Idea would be to listen to them
+
 ### TO DO :
 1.Take snapshot of the bootstrap date so that these tweets are not fetched again while bootstrapping. But as the tweets occur only once, the new result will be the absolute result.
 
