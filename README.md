@@ -55,7 +55,7 @@ As the streaming job cannot go back in time to fetch historic tweets, it is nece
     $ sbt tweetAnalysis/compile test
     $ sbt tweetAnalysis/assembly
     $ export SPARK_HOME=/your/spark/home
-    $ ./tweetAnalysis/src/main/scripts/run-job.sh "2018-05-15" "#holidaycheck"
+    $ ./tweetAnalysis/src/main/scripts/run-job.sh "2018-05-15" "#holiday"
 
 Flink job creates partitions strating with "_" which are invisible for spark. So current workaround is to rename those files using following commands :
 
